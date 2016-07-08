@@ -21,7 +21,7 @@ mvn clean test -P <some-profile-from-below>
 * hdp-2.3.2
 * hdp-2.3.4
 * hdp-2.3-with-1.6
-
+* hdp-2.4.2
 
 # Links to Versions where Versions numbers were Retrieved
 
@@ -31,3 +31,4 @@ mvn clean test -P <some-profile-from-below>
 * https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.3.0/bk_HDP_RelNotes/content/ch_relnotes_v230.html
 * https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.3.2/bk_HDP_RelNotes/content/ch_relnotes_v232.html
 * https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.3.4/bk_HDP_RelNotes/content/ch_relnotes_v234.html
+* https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.4.2/bk_HDP_RelNotes/content/ch_relnotes_v242.html

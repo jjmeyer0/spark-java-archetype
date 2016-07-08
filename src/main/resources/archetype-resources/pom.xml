@@ -59,6 +59,12 @@
             <version>4.12</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-all</artifactId>
+            <version>${mockito-all.version}</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <repositories>
@@ -88,6 +94,7 @@
             https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.3.0/bk_HDP_RelNotes/content/ch_relnotes_v230.html
             https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.3.2/bk_HDP_RelNotes/content/ch_relnotes_v232.html
             https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.3.4/bk_HDP_RelNotes/content/ch_relnotes_v234.html
+            https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.4.2/bk_HDP_RelNotes/content/ch_relnotes_v242.html
         -->
         <profile>
             <id>hdp-2.2.4</id>
@@ -136,6 +143,13 @@
             <properties>
                 <hadoop.base>2.7.1</hadoop.base>
                 <spark.version>1.6.0</spark.version>
+            </properties>
+        </profile>
+        <profile>
+            <id>hdp-2.4.2</id>
+            <properties>
+                <hadoop.base>2.7.1</hadoop.base>
+                <spark.version>1.6.1</spark.version>
             </properties>
         </profile>
     </profiles>
