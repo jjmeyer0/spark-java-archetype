@@ -19,15 +19,15 @@
         <!-- Spark -->
         <dependency>
             <groupId>org.apache.spark</groupId>
-            <artifactId>spark-core_2.10</artifactId>
+            <artifactId>spark-core_${scala-tools.version}</artifactId>
             <version>${spark.version}</version>
-            <scope>compile</scope>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.apache.spark</groupId>
-            <artifactId>spark-sql_2.10</artifactId>
+            <artifactId>spark-sql_${scala-tools.version}</artifactId>
             <version>${spark.version}</version>
-            <scope>compile</scope>
+            <scope>provided</scope>
         </dependency>
 
         <!-- Hadoop -->
@@ -57,12 +57,6 @@
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.12</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.mockito</groupId>
-            <artifactId>mockito-all</artifactId>
-            <version>${mockito-all.version}</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
@@ -95,10 +89,12 @@
             https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.3.2/bk_HDP_RelNotes/content/ch_relnotes_v232.html
             https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.3.4/bk_HDP_RelNotes/content/ch_relnotes_v234.html
             https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.4.2/bk_HDP_RelNotes/content/ch_relnotes_v242.html
+            https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.5/bk_release-notes/content/ch_relnotes.html
         -->
         <profile>
             <id>hdp-2.2.4</id>
             <properties>
+                <scala-tools.version>2.10</scala-tools.version>
                 <hadoop.base>2.6.0</hadoop.base>
                 <spark.version>1.2.1</spark.version>
             </properties>
@@ -106,6 +102,7 @@
         <profile>
             <id>hdp-2.2.6</id>
             <properties>
+                <scala-tools.version>2.10</scala-tools.version>
                 <hadoop.base>2.6.0</hadoop.base>
                 <spark.version>1.2.1</spark.version>
             </properties>
@@ -113,6 +110,7 @@
         <profile>
             <id>hdp-2.2.9</id>
             <properties>
+                <scala-tools.version>2.10</scala-tools.version>
                 <hadoop.base>2.6.0</hadoop.base>
                 <spark.version>1.3.1</spark.version>
             </properties>
@@ -120,6 +118,7 @@
         <profile>
             <id>hdp-2.3.0</id>
             <properties>
+                <scala-tools.version>2.10</scala-tools.version>
                 <hadoop.base>2.7.1</hadoop.base>
                 <spark.version>1.3.1</spark.version>
             </properties>
@@ -127,6 +126,7 @@
         <profile>
             <id>hdp-2.3.2</id>
             <properties>
+                <scala-tools.version>2.10</scala-tools.version>
                 <hadoop.base>2.7.1</hadoop.base>
                 <spark.version>1.4.1</spark.version>
             </properties>
@@ -134,6 +134,7 @@
         <profile>
             <id>hdp-2.3.4</id>
             <properties>
+                <scala-tools.version>2.10</scala-tools.version>
                 <hadoop.base>2.7.1</hadoop.base>
                 <spark.version>1.5.2</spark.version>
             </properties>
@@ -141,6 +142,7 @@
         <profile>
             <id>hdp-2.3-with-1.6</id>
             <properties>
+                <scala-tools.version>2.10</scala-tools.version>
                 <hadoop.base>2.7.1</hadoop.base>
                 <spark.version>1.6.0</spark.version>
             </properties>
@@ -148,8 +150,18 @@
         <profile>
             <id>hdp-2.4.2</id>
             <properties>
+                <scala-tools.version>2.10</scala-tools.version>
                 <hadoop.base>2.7.1</hadoop.base>
                 <spark.version>1.6.1</spark.version>
+            </properties>
+        </profile>
+        <profile>
+            <id>hdp-2.6.5</id>
+            <properties>
+                <scala-tools.version>2.11</scala-tools.version>
+                <hadoop.base>2.7.3</hadoop.base>
+                <spark.version>2.3.0</spark.version>
+                <spark1.version>1.6.3</spark1.version>
             </properties>
         </profile>
     </profiles>
@@ -166,6 +178,18 @@
                         <goals>
                             <goal>shade</goal>
                         </goals>
+                        <configuration>
+                            <filters>
+                                <filter>
+                                    <artifact>*:*</artifact>
+                                    <excludes>
+                                        <exclude>META-INF/*.SF</exclude>
+                                        <exclude>META-INF/*.DSA</exclude>
+                                        <exclude>META-INF/*.RSA</exclude>
+                                    </excludes>
+                                </filter>
+                            </filters>
+                        </configuration>
                     </execution>
                 </executions>
                 <configuration>
